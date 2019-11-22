@@ -62,3 +62,21 @@ def save_ball_game(request):
 
         except Game.DoesNotExist:
             return Response({'response': "404 - Game Not Found"})
+
+
+@api_view(['PUT'])
+def set_winner(request):
+
+    if request.method == 'PUT':
+
+        try:
+            game = Game.objects.get(status_game='ON')
+            winner = request.data['winner']
+            print(winner)
+            game.winner = winner
+            game.save()
+
+            return Response({'response': "Winner was updated successful"})
+
+        except Game.DoesNotExist:
+            return Response({'response': "Game Not Found"})

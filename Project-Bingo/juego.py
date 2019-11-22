@@ -34,7 +34,6 @@ class Juego():
         remenber = self.render_text("Recuerde gritar 'Bingo' - Suerte :D", (125, 125, 125), 19)
 
         pygame.display.set_caption("Bingo")
-
         imagen = pygame.image.load("img/play-button.png")
         balota = pygame.image.load("img/balota.png")
     

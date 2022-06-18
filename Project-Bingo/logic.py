@@ -1,4 +1,3 @@
-import win32com.client
 from bola import Bola
 from generador import Generador
 from os import system
@@ -6,10 +5,10 @@ from os import system
 
 class Logic():
 
-    def __init__(self, generador):
+    def __init__(self, generador, speaker):
         self.bolas = []
         self.generador = generador
-        self.speaker = win32com.client.Dispatch("SAPI.SpVoice")
+        self.speaker = speaker
 
 
     def generar_bola(self):
@@ -24,7 +23,7 @@ class Logic():
 
 
     def __decir_bola(self, bola):
-        self.speaker.Speak(bola.visualizar_bola())
+        self.speaker.speak(bola.visualizar_bola())
 
     def buscar_bola(self, bola_generada):
         for bola in self.bolas:

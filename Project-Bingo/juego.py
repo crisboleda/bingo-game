@@ -10,6 +10,8 @@ from logic import Logic
 from bola import Bola
 from api import Api
 
+from speaker.speaker_factory import SpeakerFactory
+
 class Juego():
 
 
@@ -77,7 +79,10 @@ class Juego():
 
 if __name__ == '__main__':
     generador = Generador()
-    logic = Logic(generador)
+    speaker_factory = SpeakerFactory("GTTS")
+    speaker = speaker_factory.get_speaker()
+
+    logic = Logic(generador=generador, speaker=speaker)
     api = Api()
 
     juego = Juego(logic, api)

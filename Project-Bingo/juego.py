@@ -2,27 +2,21 @@
 import pygame
 from pygame.locals import *
 import sys
-from os import system
 from datetime import datetime
 import threading
 import time
 
-from generador import Generador
-from logic import Logic
 from bola import Bola
-from api import Api
-
-from speaker.speaker_factory import SpeakerFactory
 
 class Juego():
 
-    def __init__(self, logic, api):
+    def __init__(self, logic, api, seconds_delay):
         self.screen = pygame.display.set_mode((500, 400))
         self.api = api
         self.logic = logic
         self.text_ball = None
         self.is_pause = True
-        self.seconds_delay = 5
+        self.seconds_delay = seconds_delay
 
     def generate_ball_worker(self, arg):
         while not arg["stop"]:
@@ -89,15 +83,3 @@ class Juego():
 
     def get_time_now(self):
         return str(datetime.now())
-
-
-if __name__ == '__main__':
-    generador = Generador()
-    speaker_factory = SpeakerFactory("GTTS")
-    speaker = speaker_factory.get_speaker()
-
-    logic = Logic(generador=generador, speaker=speaker)
-    api = Api()
-
-    juego = Juego(logic, api)
-    juego.start_game()

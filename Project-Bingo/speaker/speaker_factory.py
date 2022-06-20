@@ -1,7 +1,7 @@
 from speaker.gtts_speaker import GTTSpeaker
 
-class SpeakerFactory:
 
+class SpeakerFactory:
     def __init__(self, speaker_name):
         self.speaker_name = speaker_name.upper()
 
@@ -9,4 +9,4 @@ class SpeakerFactory:
         if self.speaker_name == "WINDOWS":
             pass
         elif self.speaker_name == "GTTS":
-            return GTTSpeaker(language='es')
+            return GTTSpeaker(language="es")

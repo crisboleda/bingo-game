@@ -1,6 +1,4 @@
-
-class Bola():
-
+class Bola:
     def __init__(self, letra, numero):
         self.letra = letra
         self.numero = numero

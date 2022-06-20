@@ -1,4 +1,3 @@
-
 import pygame
 from pygame.locals import *
 import sys
@@ -8,8 +7,8 @@ import time
 
 from bola import Bola
 
-class Juego():
 
+class Juego:
     def __init__(self, logic, api, seconds_delay):
         self.screen = pygame.display.set_mode((500, 400))
         self.api = api
@@ -24,20 +23,24 @@ class Juego():
             if not self.is_pause:
                 bola = self.logic.generar_bola()
                 self.api.save_ball_game(bola)
-                self.text_ball = self.render_text(bola.visualizar_bola(), (255, 255, 255), 90)
+                self.text_ball = self.render_text(
+                    bola.visualizar_bola(), (255, 255, 255), 90
+                )
 
     def render_text(self, string, color, size):
         font = pygame.font.SysFont("arial", size)
         return font.render(string, True, color)
 
     def start_game(self):
-        bola = Bola('b', 0)
+        bola = Bola("b", 0)
         pygame.init()
         self.api.create_new_game()
 
         self.text_ball = self.render_text("???", (255, 255, 255), 90)
         title_game = self.render_text("¡Super Bingo!", (50, 50, 50), 35)
-        remenber = self.render_text("Recuerde gritar 'Bingo' - Suerte :D", (125, 125, 125), 19)
+        remenber = self.render_text(
+            "Recuerde gritar 'Bingo' - Suerte :D", (125, 125, 125), 19
+        )
 
         pygame.display.set_caption("Bingo")
         imagen = pygame.image.load("img/play-button.png")
@@ -46,7 +49,7 @@ class Juego():
         info = {"stop": False}
         thread = threading.Thread(target=self.generate_ball_worker, args=(info,))
         thread.start()
-    
+
         while True:
             self.screen.fill((255, 255, 255))
 
@@ -60,9 +63,13 @@ class Juego():
                 elif event.type == pygame.MOUSEBUTTONUP:
                     x_mouse, y_mouse = pygame.mouse.get_pos()
 
-                    if x_mouse >= 60 and x_mouse <= 188 and y_mouse >= 110 and y_mouse <= 238:
+                    if (
+                        x_mouse >= 60
+                        and x_mouse <= 188
+                        and y_mouse >= 110
+                        and y_mouse <= 238
+                    ):
                         self.is_pause = not self.is_pause
-
 
             self.screen.blit(imagen, (60, 125))
             self.screen.blit(balota, (210, 65))

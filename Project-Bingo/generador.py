@@ -1,8 +1,8 @@
-
 from bola import Bola
 import random
 
-class Generador():
+
+class Generador:
 
     LETRAS = ("B", "I", "N", "G", "O")
 
@@ -12,14 +12,12 @@ class Generador():
 
         return Bola(letra, numero)
 
-    
     def __generar_letra(self):
         pos = random.randint(0, 4)
         return Generador.LETRAS[pos]
 
-    
     def __generar_numero(self, letra):
-        
+
         numero = 0
 
         if letra == "B":
@@ -29,16 +27,15 @@ class Generador():
             numero = self.__generar_numero_random(16, 30)
 
         elif letra == "N":
-            numero = self.__generar_numero_random(31, 45) 
+            numero = self.__generar_numero_random(31, 45)
 
         elif letra == "G":
             numero = self.__generar_numero_random(46, 60)
 
         elif letra == "O":
-            numero = self.__generar_numero_random(61, 75)       
+            numero = self.__generar_numero_random(61, 75)
 
-        return numero    
+        return numero
 
     def __generar_numero_random(self, inicio, fin):
         return random.randint(inicio, fin)
-        

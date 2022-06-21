@@ -1,3 +1,4 @@
+from email.mime import image
 import pygame
 from pygame.locals import *
 import sys
@@ -43,7 +44,7 @@ class Juego:
         )
 
         pygame.display.set_caption("Bingo")
-        imagen = pygame.image.load("img/play-button.png")
+        button_image = self.get_image_play_or_pause_button()
         balota = pygame.image.load("img/balota.png")
 
         info = {"stop": False}
@@ -70,8 +71,9 @@ class Juego:
                         and y_mouse <= 238
                     ):
                         self.is_pause = not self.is_pause
+                        button_image = self.get_image_play_or_pause_button()
 
-            self.screen.blit(imagen, (60, 125))
+            self.screen.blit(button_image, (60, 125))
             self.screen.blit(balota, (210, 65))
 
             if len(bola.visualizar_bola()) == 2:
@@ -90,3 +92,7 @@ class Juego:
 
     def get_time_now(self):
         return str(datetime.now())
+
+    def get_image_play_or_pause_button(self):
+        image_url = "img/play-button.png" if self.is_pause else "img/pause-button.png"
+        return pygame.image.load(image_url)

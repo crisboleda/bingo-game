@@ -2,21 +2,21 @@ from bola import Bola
 import random
 
 
-class Generador:
+class Generator:
 
     LETRAS = ("B", "I", "N", "G", "O")
 
     def generar_nueva_bola(self):
-        letra = self.__generar_letra()
-        numero = self.__generar_numero(letra)
+        letter = self.__generate_letter()
+        number = self.__generate_number(letter)
 
-        return Bola(letra, numero)
+        return Bola(letter, number)
 
-    def __generar_letra(self):
+    def __generate_letter(self):
         pos = random.randint(0, 4)
-        return Generador.LETRAS[pos]
+        return Generator.LETRAS[pos]
 
-    def __generar_numero(self, letra):
+    def __generate_number(self, letra):
 
         numero = 0
 

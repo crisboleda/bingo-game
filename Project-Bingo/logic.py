@@ -1,18 +1,16 @@
-from bola import Bola
-from generador import Generador
 from os import system
 
 
 class Logic:
-    def __init__(self, generador, speaker):
+    def __init__(self, generator, speaker):
         self.bolas = []
-        self.generador = generador
+        self.generator = generator
         self.speaker = speaker
 
     def generar_bola(self):
         system("cls")
         while True:
-            bola = self.generador.generar_nueva_bola()
+            bola = self.generator.generar_nueva_bola()
 
             if self.buscar_bola(bola):
                 self.bolas.append(bola)

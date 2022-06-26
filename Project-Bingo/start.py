@@ -1,6 +1,6 @@
 from speaker.speaker_factory import SpeakerFactory
 
-from generador import Generador
+from generador import Generator
 from logic import Logic
 from constants import SPEAKER_DELAY_SECONDS, DEFAULT_SPEAKER_TYPE
 from api import Api
@@ -29,11 +29,11 @@ if __name__ == "__main__":
     args = parser.parse_args()
     config = vars(args)
 
-    generador = Generador()
+    generator = Generator()
     speaker_factory = SpeakerFactory(speaker_name=config["speaker"])
     speaker = speaker_factory.get_speaker()
 
-    logic = Logic(generador=generador, speaker=speaker)
+    logic = Logic(generator=generator, speaker=speaker)
     api = Api()
 
     juego = Juego(logic=logic, api=api, seconds_delay=config["delay"])

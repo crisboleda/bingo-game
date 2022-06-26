@@ -25,6 +25,6 @@ jobs:
           python -m pip list
       - name: Run Python tests
         run: |
-          cd Project-Bingo
+          cd game/Project-Bingo
           coverage run --source=. -m unittest discover -v -s tests/ -p "*_test.py"
           coverage report -m --omit=tests/*,*__init__.py

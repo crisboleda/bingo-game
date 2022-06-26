@@ -16,29 +16,29 @@ class Generator:
         pos = random.randint(0, 4)
         return Generator.LETRAS[pos]
 
-    def __generate_number(self, letra):
+    def __generate_number(self, letter: str):
 
-        numero = 0
+        number = 0
 
-        if letra == "B":
-            numero = self.__generar_numero_random(1, 15)
+        if letter == "B":
+            number = self.__generate_random_number(1, 15)
 
-        elif letra == "I":
-            numero = self.__generar_numero_random(16, 30)
+        elif letter == "I":
+            number = self.__generate_random_number(16, 30)
 
-        elif letra == "N":
-            numero = self.__generar_numero_random(31, 45)
+        elif letter == "N":
+            number = self.__generate_random_number(31, 45)
 
-        elif letra == "G":
-            numero = self.__generar_numero_random(46, 60)
+        elif letter == "G":
+            number = self.__generate_random_number(46, 60)
 
-        elif letra == "O":
-            numero = self.__generar_numero_random(61, 75)
+        elif letter == "O":
+            number = self.__generate_random_number(61, 75)
 
-        return numero
+        return number
 
-    def __generar_numero_random(self, inicio, fin):
-        return random.randint(inicio, fin)
+    def __generate_random_number(self, start: int, end: int):
+        return random.randint(start, end)
 
     def generate_all_ballot_numbers_by_letter(self, letter: str):
         ballot_numbers = []

@@ -39,3 +39,12 @@ class Generator:
 
     def __generar_numero_random(self, inicio, fin):
         return random.randint(inicio, fin)
+
+    def generate_all_ballot_numbers_by_letter(self, letter: str):
+        ballot_numbers = []
+        while len(ballot_numbers) < 15:
+            ballot_number = self.__generate_number(letter)
+            if not ballot_number in ballot_numbers:
+                ballot_numbers.append(ballot_number)
+
+        return ballot_numbers

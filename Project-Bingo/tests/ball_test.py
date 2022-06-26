@@ -8,7 +8,7 @@ class BallTest(TestCase):
         self.ballot_two = Bola("I", 20)
         self.ballot_three = Bola("n", 30)
 
-    def test_show_ball(self):
+    def test_show_ballot(self):
         self.assertEqual("B12", self.ballot_one.visualizar_bola())
         self.assertEqual("I20", self.ballot_two.visualizar_bola())
         self.assertEqual("N30", self.ballot_three.visualizar_bola())

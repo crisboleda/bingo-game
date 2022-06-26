@@ -8,7 +8,7 @@ jobs:
       - name: Clone CI repository
         uses: actions/checkout@v3
         with:
-          path: GAME-BINGO
+          path: game
       - name: Setup Python
         uses: actions/setup-python@v3
         with:
@@ -16,6 +16,7 @@ jobs:
           architecture: "x64"
       - name: Info
         run: |
+          cd game
           pwd
           ls -al
       - name: Install Python dependencies

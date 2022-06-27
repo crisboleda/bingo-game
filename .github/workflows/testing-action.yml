@@ -1,11 +1,11 @@
-name: learn-github-actions
+name: Tests
 on: [push]
 jobs:
   test-py:
     name: Python Tests (3.8)
     runs-on: ubuntu-latest
     steps:
-      - name: Clone CI repository
+      - name: Checkout branch
         uses: actions/checkout@v3
       - name: Setup Python
         uses: actions/setup-python@v3

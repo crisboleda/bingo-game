@@ -21,7 +21,7 @@ class Generator:
         number = 0
 
         if letter == "B":
-            number = self.__generate_random_number(1, 15)
+            number = self.__generate_random_number(16, 30)
 
         elif letter == "I":
             number = self.__generate_random_number(16, 30)

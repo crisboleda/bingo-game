@@ -21,3 +21,13 @@ class LogicTest(TestCase):
         self.assertEqual(len(self.logic.bolas), 1)
         self.assertIsInstance(ballot, Bola)
         gtt_speak_mock.assert_called_once_with(ballot.visualizar_bola())
+
+    def test_validate_ballot_generated(self) -> None:
+        old_ballot = Bola("B", 11)
+        self.logic.bolas = [old_ballot]
+
+        new_ballot_b = Bola("B", 11)
+        new_ballot_g = Bola("G", 47)
+
+        self.assertFalse(self.logic.buscar_bola(new_ballot_b))
+        self.assertTrue(self.logic.buscar_bola(new_ballot_g))

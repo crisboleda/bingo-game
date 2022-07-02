@@ -1,6 +1,3 @@
-from os import system
-
-
 class Logic:
     def __init__(self, generator, speaker):
         self.bolas = []
@@ -8,7 +5,6 @@ class Logic:
         self.speaker = speaker
 
     def generar_bola(self):
-        system("cls")
         while True:
             bola = self.generator.generar_nueva_bola()
 

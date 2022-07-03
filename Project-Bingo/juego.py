@@ -5,14 +5,17 @@ from datetime import datetime
 import threading
 import time
 
+from constants import COORDINATE_IMAGE_BALLOT_X, COORDINATE_IMAGE_BALLOT_Y, MODE_TESTING
+
 
 class Juego:
-    def __init__(self, logic, api, seconds_delay):
+    def __init__(self, logic, api, seconds_delay, mode=None):
         self.api = api
         self.logic = logic
         self.text_ball = None
         self.is_pause = True
         self.seconds_delay = seconds_delay
+        self.mode = mode
 
     def generate_ball_worker(self, arg):
         while not arg["stop"]:
@@ -70,13 +73,19 @@ class Juego:
                         button_image = self.get_image_play_or_pause_button()
 
             self.screen.blit(button_image, (60, 125))
-            self.screen.blit(balota, (210, 65))
+            self.screen.blit(
+                balota, (COORDINATE_IMAGE_BALLOT_X, COORDINATE_IMAGE_BALLOT_Y)
+            )
 
             ballot_text_coordinate_x = self.__get_coordinates_ballot_text_inside_parent(
-                210, balota.get_rect().centerx, self.text_ball.get_rect().centerx
+                COORDINATE_IMAGE_BALLOT_X,
+                balota.get_rect().centerx,
+                self.text_ball.get_rect().centerx,
             )
             ballot_text_coordinate_y = self.__get_coordinates_ballot_text_inside_parent(
-                65, balota.get_rect().centery, self.text_ball.get_rect().centery
+                COORDINATE_IMAGE_BALLOT_Y,
+                balota.get_rect().centery,
+                self.text_ball.get_rect().centery,
             )
 
             self.screen.blit(
@@ -91,6 +100,9 @@ class Juego:
 
             pygame.display.flip()
             pygame.display.update()
+
+            if self.mode == MODE_TESTING:
+                break
 
     def get_time_now(self):
         return str(datetime.now())

@@ -1,6 +1,6 @@
 from unittest import TestCase
 from generador import Generator
-from bola import Bola
+from ballot import Ballot
 
 
 class GeneratorTest(TestCase):
@@ -78,7 +78,7 @@ class GeneratorTest(TestCase):
 
     def test_generate_a_new_ballot(self):
         ballot = self.generator.generar_nueva_bola()
-        self.assertIsInstance(ballot, Bola)
+        self.assertIsInstance(ballot, Ballot)
 
     def test_generate_ballot_letter_B(self):
         ballot_numbers = self.generator.generate_all_ballot_numbers_by_letter("B")

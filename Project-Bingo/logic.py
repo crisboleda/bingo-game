@@ -1,3 +1,4 @@
+from ballot import Ballot
 class Logic:
     def __init__(self, generator, speaker):
         self.bolas = []
@@ -13,7 +14,7 @@ class Logic:
                 self.__decir_bola(bola)
                 return bola
 
-    def __decir_bola(self, bola):
+    def __decir_bola(self, bola: Ballot):
         self.speaker.speak(bola.visualizar_bola())
 
     def buscar_bola(self, bola_generada):

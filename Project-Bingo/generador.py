@@ -1,4 +1,4 @@
-from bola import Bola
+from ballot import Ballot
 import random
 
 
@@ -10,7 +10,7 @@ class Generator:
         letter = self.__generate_letter()
         number = self.__generate_number(letter)
 
-        return Bola(letter, number)
+        return Ballot(letter, number)
 
     def __generate_letter(self):
         pos = random.randint(0, 4)

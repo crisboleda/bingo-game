@@ -1,5 +1,5 @@
 import requests
-from bola import Bola
+from ballot import Ballot
 import json
 
 

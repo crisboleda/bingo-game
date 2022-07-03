@@ -1,24 +1,26 @@
 from ballot import Ballot
+from generador import Generator
+
 class Logic:
-    def __init__(self, generator, speaker):
-        self.bolas = []
+    def __init__(self, generator: Generator, speaker):
+        self.ballots = []
         self.generator = generator
         self.speaker = speaker
 
-    def generar_bola(self):
+    def generate_ballot(self):
         while True:
-            bola = self.generator.generar_nueva_bola()
+            ballot = self.generator.generate_new_ballot()
 
-            if self.buscar_bola(bola):
-                self.bolas.append(bola)
-                self.__decir_bola(bola)
-                return bola
+            if self.buscar_bola(ballot):
+                self.ballots.append(ballot)
+                self.__say_ballot(ballot)
+                return ballot
 
-    def __decir_bola(self, bola: Ballot):
-        self.speaker.speak(bola.visualizar_bola())
+    def __say_ballot(self, ballot: Ballot):
+        self.speaker.speak(ballot.show_ballot())
 
-    def buscar_bola(self, bola_generada):
-        for bola in self.bolas:
-            if bola.numero == bola_generada.numero:
+    def buscar_bola(self, ballot_generated: Ballot):
+        for ballot in self.ballots:
+            if ballot.number == ballot_generated.number:
                 return False
         return True

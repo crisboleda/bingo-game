@@ -24,9 +24,9 @@ class Api:
         response = requests.put("http://127.0.0.1:8000/api/v1/bingo/end")
         self.validate_status(response.status_code, "The game was end successful")
 
-    def save_ball_game(self, ball):
+    def save_ball_game(self, ballot: Ballot):
 
-        body = {"letter": ball.letra, "number": ball.numero}
+        body = {"letter": ballot.letter, "number": ballot.number}
 
         response = requests.put(
             "http://127.0.0.1:8000/api/v1/bingo/agregar/balota", data=body

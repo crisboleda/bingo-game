@@ -77,7 +77,7 @@ class GeneratorTest(TestCase):
         ]
 
     def test_generate_a_new_ballot(self):
-        ballot = self.generator.generar_nueva_bola()
+        ballot = self.generator.generate_new_ballot()
         self.assertIsInstance(ballot, Ballot)
 
     def test_generate_ballot_letter_B(self):

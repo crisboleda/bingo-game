@@ -16,15 +16,15 @@ class LogicTest(TestCase):
 
     @patch.object(GTTSpeaker, "speak", return_value=None)
     def test_generate_ballots(self, gtt_speak_mock: Mock) -> None:
-        ballot = self.logic.generar_bola()
+        ballot = self.logic.generate_ballot()
 
-        self.assertEqual(len(self.logic.bolas), 1)
+        self.assertEqual(len(self.logic.ballots), 1)
         self.assertIsInstance(ballot, Ballot)
-        gtt_speak_mock.assert_called_once_with(ballot.visualizar_bola())
+        gtt_speak_mock.assert_called_once_with(ballot.show_ballot())
 
     def test_validate_ballot_generated(self) -> None:
         old_ballot = Ballot("B", 11)
-        self.logic.bolas = [old_ballot]
+        self.logic.ballots = [old_ballot]
 
         new_ballot_b = Ballot("B", 11)
         new_ballot_g = Ballot("G", 47)

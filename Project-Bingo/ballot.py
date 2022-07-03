@@ -1,7 +1,7 @@
 class Ballot:
-    def __init__(self, letra: str, numero: int):
-        self.letra = letra
-        self.numero = numero
+    def __init__(self, letter: str, number: int):
+        self.letter = letter
+        self.number = number
 
-    def visualizar_bola(self):
-        return "{}{}".format(self.letra.upper(), self.numero)
+    def show_ballot(self):
+        return "{}{}".format(self.letter.upper(), self.number)

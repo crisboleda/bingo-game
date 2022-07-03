@@ -4,7 +4,7 @@ from generador import Generator
 from logic import Logic
 from constants import SPEAKER_DELAY_SECONDS, DEFAULT_SPEAKER_TYPE
 from api import Api
-from juego import Juego
+from game import Game
 
 import argparse
 
@@ -36,5 +36,5 @@ if __name__ == "__main__":
     logic = Logic(generator=generator, speaker=speaker)
     api = Api()
 
-    juego = Juego(logic=logic, api=api, seconds_delay=config["delay"])
-    juego.start_game()
+    game = Game(logic=logic, api=api, seconds_delay=config["delay"])
+    game.start_game()

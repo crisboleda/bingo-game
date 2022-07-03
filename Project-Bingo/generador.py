@@ -4,17 +4,17 @@ import random
 
 class Generator:
 
-    LETRAS = ("B", "I", "N", "G", "O")
+    LETTERS = ("B", "I", "N", "G", "O")
 
-    def generar_nueva_bola(self):
+    def generate_new_ballot(self) -> Ballot:
         letter = self.__generate_letter()
         number = self.__generate_number(letter)
 
         return Ballot(letter, number)
 
     def __generate_letter(self):
-        pos = random.randint(0, 4)
-        return Generator.LETRAS[pos]
+        position = random.randint(0, 4)
+        return Generator.LETTERS[position]
 
     def __generate_number(self, letter: str):
 

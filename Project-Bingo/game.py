@@ -8,7 +8,7 @@ import time
 from constants import COORDINATE_IMAGE_BALLOT_X, COORDINATE_IMAGE_BALLOT_Y, MODE_TESTING
 
 
-class Juego:
+class Game:
     def __init__(self, logic, api, seconds_delay, mode=None):
         self.api = api
         self.logic = logic
@@ -21,10 +21,10 @@ class Juego:
         while not arg["stop"]:
             time.sleep(self.seconds_delay)
             if not self.is_pause:
-                bola = self.logic.generar_bola()
-                self.api.save_ball_game(bola)
+                ballot = self.logic.generate_ballot()
+                self.api.save_ball_game(ballot)
                 self.text_ball = self.render_text(
-                    bola.visualizar_bola(), (255, 255, 255), 90
+                    ballot.show_ballot(), (255, 255, 255), 90
                 )
 
     def render_text(self, string, color, size):

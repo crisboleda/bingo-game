@@ -1,4 +1,3 @@
-from email.mime import image
 import pygame
 from pygame.locals import *
 import sys
@@ -6,12 +5,9 @@ from datetime import datetime
 import threading
 import time
 
-from bola import Bola
-
 
 class Juego:
     def __init__(self, logic, api, seconds_delay):
-        self.screen = pygame.display.set_mode((500, 400))
         self.api = api
         self.logic = logic
         self.text_ball = None
@@ -33,7 +29,7 @@ class Juego:
         return font.render(string, True, color)
 
     def start_game(self):
-        bola = Bola("b", 0)
+        self.screen = pygame.display.set_mode((500, 400))
         pygame.init()
         self.api.create_new_game()
 
@@ -76,10 +72,16 @@ class Juego:
             self.screen.blit(button_image, (60, 125))
             self.screen.blit(balota, (210, 65))
 
-            if len(bola.visualizar_bola()) == 2:
-                self.screen.blit(self.text_ball, (280, 130))
-            else:
-                self.screen.blit(self.text_ball, (255, 133))
+            ballot_text_coordinate_x = self.__get_coordinates_ballot_text_inside_parent(
+                210, balota.get_rect().centerx, self.text_ball.get_rect().centerx
+            )
+            ballot_text_coordinate_y = self.__get_coordinates_ballot_text_inside_parent(
+                65, balota.get_rect().centery, self.text_ball.get_rect().centery
+            )
+
+            self.screen.blit(
+                self.text_ball, (ballot_text_coordinate_x, ballot_text_coordinate_y)
+            )
 
             self.screen.blit(title_game, (145, 5))
             self.screen.blit(remenber, (10, 370))
@@ -96,3 +98,8 @@ class Juego:
     def get_image_play_or_pause_button(self):
         image_url = "img/play-button.png" if self.is_pause else "img/pause-button.png"
         return pygame.image.load(image_url)
+
+    def __get_coordinates_ballot_text_inside_parent(
+        self, coordinate_parent: int, middle_parent: int, middle_child: int
+    ):
+        return coordinate_parent + middle_parent - middle_child

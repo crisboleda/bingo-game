@@ -29,5 +29,5 @@ class LogicTest(TestCase):
         new_ballot_b = Ballot("B", 11)
         new_ballot_g = Ballot("G", 47)
 
-        self.assertFalse(self.logic.buscar_bola(new_ballot_b))
-        self.assertTrue(self.logic.buscar_bola(new_ballot_g))
+        self.assertFalse(self.logic.is_ballot_available(new_ballot_b))
+        self.assertTrue(self.logic.is_ballot_available(new_ballot_g))

@@ -7,11 +7,11 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@v3
-      - name: Setup folder
-        run: |
-          cd Project-Bingo
-          pwd
-      - uses: psf/black@stable
+      - name: Black Formatter Check
+        uses: psf/black@stable
+        with:
+          options: "--check --diff --verbose"
+          src: ./Project-Bingo
   test-py:
     name: Python Tests (3.8)
     runs-on: ubuntu-latest

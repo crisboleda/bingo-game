@@ -5,5 +5,14 @@ jobs:
     name: Code Style Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout branch
+        uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.8"
+          architecture: "x64"
+      - name: Open Project-Bingo
+        run: |
+          cd Project-Bingo
       - uses: psf/black@stable

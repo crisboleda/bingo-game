@@ -10,7 +10,7 @@ jobs:
       - name: Black Formatter Check
         uses: psf/black@stable
         with:
-          options: "--check --diff --verbose"
+          options: "--check --diff --verbose --color"
           src: ./Project-Bingo
   test-py:
     name: Python Tests (3.8)

@@ -4,6 +4,6 @@ jobs:
   lint:
     name: Code Style Check
     runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v2
-    - uses: psf/black@stable
+    steps:
+      - uses: actions/checkout@v2
+      - uses: psf/black@stable

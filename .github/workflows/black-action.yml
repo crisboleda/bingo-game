@@ -1,5 +1,9 @@
 name: Lint
-on: [push]
+on:
+  workflow_run:
+    workflows: ["Tests"]
+  types:
+    - completed
 jobs:
   lint:
     name: Code Style Check
@@ -7,11 +11,6 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@v3
-      - name: Setup Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: "3.8"
-          architecture: "x64"
       - name: Open Project-Bingo
         run: |
           cd Project-Bingo

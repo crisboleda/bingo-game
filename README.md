@@ -19,7 +19,22 @@ This project uses a desktop application made with Pygame that allows the generat
 5. python manage.py makemigrations
 6. python manage.py migrate
 7. python bingo-api/ApiBingo/manage.py runserver
-8. python ./Project-Bingo/start.py
+```
+
+### Run Balot Generator
+```
+python ./Project-Bingo/start.py --speaker='GTTS' --delay=5
+```
+| Parameter             | Description                                                                           |
+| --------------------- | ------------------------------------------------------------------------------------- |
+| -- speaker             | The library or software that you want to use for sound output (Default **'GTTS'**)   |
+| -- delay               | Waiting time to say another ballot (Default **5** seconds)                           |
+
+
+### Tests
+```
+cd Project-Bingo
+coverage run --source=. -m unittest discover -v -s tests/ -p "*_test.py"
 ```
 
 ### Things that were implemented:

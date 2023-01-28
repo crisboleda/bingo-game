@@ -3,6 +3,7 @@
 
 ![Tests](https://github.com/crisboleda/Game-Bingo/actions/workflows/testing-action.yml/badge.svg?branch=master)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+![Last commit](https://img.shields.io/github/last-commit/crisboleda/bingo-game?color=blue)
 
 ## About this project
 Bingo is a game of chance in which players have a card with numbers on it. As the numbers are drawn, the participants complete their cards: the first to do so is the winner.
@@ -25,10 +26,10 @@ This project uses a desktop application made with Pygame that allows the generat
 ```
 python ./Project-Bingo/start.py --speaker='GTTS' --delay=5
 ```
-| Parameter             | Description                                                                           |
-| --------------------- | ------------------------------------------------------------------------------------- |
-| -- speaker             | The library or software that you want to use for sound output (Default **'GTTS'**)   |
-| -- delay               | Waiting time to say another ballot (Default **5** seconds)                           |
+| Parameter             | Description                                                                          |
+| --------------------- | ------------------------------------------------------------------------------------ |
+| --speaker             | The library or software that you want to use for sound output (Default **'GTTS'**)   |
+| --delay               | Waiting time to say another ballot (Default **5** seconds)                           |
 
 
 ### Tests

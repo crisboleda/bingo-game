@@ -1,7 +1,7 @@
 from gtts import gTTS
 import os
 
-from speaker import Speaker
+from speaker.speaker import Speaker
 
 
 class GTTSpeaker(Speaker):

@@ -10,3 +10,6 @@ COORDINATE_IMAGE_BALLOT_Y = 65
 
 # Flag testing mode
 MODE_TESTING = "test"
+
+# API url
+API_URL = "http://127.0.0.1:8000"

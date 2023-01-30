@@ -1,6 +1,8 @@
 import requests
+import logging
+
 from ballot import Ballot
-import json
+from constants import API_URL
 
 
 class Api:
@@ -16,29 +18,23 @@ class Api:
             "winner": None,
         }
 
-        response = requests.post("http://127.0.0.1:8000/api/v1/bingo/", data=body)
-        self.validate_status(response.status_code, "The game was created successful")
+        response = requests.post(f"{API_URL}/api/v1/bingo/", data=body)
+        if response.status_code == 201:
+            logging.info("The game was created successful")
 
     def update_game_end(self):
 
-        response = requests.put("http://127.0.0.1:8000/api/v1/bingo/end")
-        self.validate_status(response.status_code, "The game was end successful")
+        response = requests.put(f"{API_URL}/api/v1/bingo/end")
+        if response.status_code == 200:
+            logging.info("The game was finished successful")
 
     def save_ball_game(self, ballot: Ballot):
+        """
+        Save a ballot
+        """
 
         body = {"letter": ballot.letter, "number": ballot.number}
 
-        response = requests.put(
-            "http://127.0.0.1:8000/api/v1/bingo/agregar/balota", data=body
-        )
-        self.validate_status(response.status_code, "The ball was saved successful")
-
-    def validate_status(self, stat, success):
-
-        status = int(stat)
-
-        if status >= 200 and status <= 299:
-            print(success)
-
-        elif status == "404" or status:
-            print("ERROR - 404 Not Found")
+        response = requests.put(f"{API_URL}/api/v1/bingo/agregar/balota", data=body)
+        if response.status_code == 201:
+            logging.info("The ballot was saved successful")

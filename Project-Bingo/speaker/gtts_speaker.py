@@ -1,8 +1,10 @@
 from gtts import gTTS
 import os
 
+from speaker import Speaker
 
-class GTTSpeaker:
+
+class GTTSpeaker(Speaker):
     def __init__(self, language="es"):
         self.language = language
 
